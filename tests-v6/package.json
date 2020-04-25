@@ -1,0 +1,17 @@
+{
+  "name": "lighthouse-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-launcher": "0.13.1",
+    "lighthouse": "6.0.0-beta.0",
+    "slugify": "1.4.0"
+  }
+}
