@@ -1,0 +1,235 @@
+{
+  "sitesAnalyzed": 922,
+  "perfScoreV5": {
+    "mean": 0.6918152173913045,
+    "median": 0.75,
+    "std": 0.23995707946590555,
+    "min": 0,
+    "max": 1
+  },
+  "perfScoreV6": {
+    "mean": 0.6649781659388656,
+    "median": 0.71,
+    "std": 0.23995286322928752,
+    "min": 0.05,
+    "max": 1
+  },
+  "googleFonts": {
+    "haveStylesheet": 329,
+    "haveFontFiles": 325,
+    "highestFontResourceSize": 909020,
+    "smallestFontResourceSize": 6332
+  },
+  "jsBundles": {
+    "total": {
+      "resourceSize": {
+        "mean": 1583468.9619978284,
+        "median": 891365,
+        "std": 1900760.6659450717,
+        "min": 224706,
+        "max": 26209990
+      },
+      "transferSize": {
+        "mean": 430225.5114006515,
+        "median": 266794,
+        "std": 489882.7292436691,
+        "min": 68864,
+        "max": 9053360
+      },
+      "count": {
+        "mean": 14.099891422366992,
+        "median": 11,
+        "std": 10.071527343540145,
+        "min": 3,
+        "max": 110
+      }
+    },
+    "local": {
+      "resourceSize": {
+        "mean": 976509.6188925081,
+        "median": 616295,
+        "std": 1052299.0300065055,
+        "min": 156300,
+        "max": 11101190
+      },
+      "transferSize": {
+        "mean": 277899.13246471225,
+        "median": 188424,
+        "std": 369409.9514516592,
+        "min": 51945,
+        "max": 8602114
+      },
+      "count": {
+        "mean": 8.782844733984799,
+        "median": 8,
+        "std": 4.392504602308471,
+        "min": 3,
+        "max": 36
+      }
+    },
+    "thirdParty": {
+      "resourceSize": {
+        "mean": 606959.3431053204,
+        "median": 98456,
+        "std": 1381175.8474604026,
+        "min": 0,
+        "max": 25845611
+      },
+      "transferSize": {
+        "mean": 152326.3789359392,
+        "median": 31365,
+        "std": 246797.19642109275,
+        "min": 0,
+        "max": 2074936
+      },
+      "count": {
+        "mean": 5.317046688382193,
+        "median": 2,
+        "std": 8.673511798611036,
+        "min": 0,
+        "max": 100
+      },
+      "originCount": {
+        "mean": 3.269272529858849,
+        "median": 2,
+        "std": 4.246126164516853,
+        "min": 0,
+        "max": 24
+      }
+    }
+  },
+  "jsImpact": {
+    "totalBlockingTime": {
+      "score": {
+        "mean": 0.5707917570498915,
+        "median": 0.64,
+        "std": 0.367304531569311,
+        "min": 0,
+        "max": 1
+      },
+      "numericValue": {
+        "mean": 1153.5163235949203,
+        "median": 490,
+        "std": 6729.974389743181,
+        "min": 0,
+        "max": 151130
+      }
+    },
+    "maxPotentialFid": {
+      "score": {
+        "mean": 0.36105206073752677,
+        "median": 0.28,
+        "std": 0.3143130653366976,
+        "min": 0,
+        "max": 1
+      },
+      "numericValue": {
+        "mean": 446.25650759219087,
+        "median": 337,
+        "std": 448.4665537382732,
+        "min": 16,
+        "max": 5465
+      }
+    },
+    "firstCpuIdle": {
+      "score": {
+        "mean": 0.678568329718005,
+        "median": 0.79,
+        "std": 0.2973851117047671,
+        "min": 0,
+        "max": 1
+      },
+      "numericValue": {
+        "mean": 5992.147500676728,
+        "median": 4489.8275,
+        "std": 8726.255779187239,
+        "min": 1117.655,
+        "max": 167877.086
+      }
+    },
+    "timeToInteractive": {
+      "score": {
+        "mean": 0.6540889370932754,
+        "median": 0.76,
+        "std": 0.30721311256729894,
+        "min": 0,
+        "max": 1
+      },
+      "numericValue": {
+        "mean": 7130.441954014184,
+        "median": 5095.947534576416,
+        "std": 9436.33781401824,
+        "min": 1180.655,
+        "max": 168177.8145
+      }
+    }
+  },
+  "dataDuplication": {
+    "indexPageData": {
+      "transferSize": {
+        "mean": 9073.06477093207,
+        "median": 2100,
+        "std": 25973.07659002255,
+        "min": 132,
+        "max": 350448
+      },
+      "resourceSize": {
+        "mean": 43819.61611374407,
+        "median": 5056,
+        "std": 176699.56814425663,
+        "min": 94,
+        "max": 2271756
+      }
+    },
+    "indexHtml": {
+      "transferSize": {
+        "mean": 46886.14223669924,
+        "median": 26401,
+        "std": 145820.24017589178,
+        "min": 602,
+        "max": 4096144
+      },
+      "resourceSize": {
+        "mean": 168422.447339848,
+        "median": 109218,
+        "std": 214471.5403039214,
+        "min": 60,
+        "max": 4091002
+      }
+    }
+  },
+  "images": {
+    "offscreenImages": {
+      "score": {
+        "mean": 0.9031561822125815,
+        "median": 1,
+        "std": 0.2294035023586604,
+        "min": 0,
+        "max": 1
+      },
+      "numericValue": {
+        "mean": 404.0997830802603,
+        "median": 0,
+        "std": 1919.6800942604023,
+        "min": 0,
+        "max": 38130
+      }
+    },
+    "responsiveImages": {
+      "score": {
+        "mean": 0.8458568329718005,
+        "median": 1,
+        "std": 0.2711610398950265,
+        "min": 0,
+        "max": 1
+      },
+      "numericValue": {
+        "mean": 732.5813449023861,
+        "median": 0,
+        "std": 3612.716329782598,
+        "min": 0,
+        "max": 85760
+      }
+    }
+  }
+}

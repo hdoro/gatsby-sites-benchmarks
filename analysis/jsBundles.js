@@ -38,7 +38,16 @@ function calculateSize(files, isResource) {
   );
 }
 
-exports.getJsBundlesInfo = function ({ requests, requestedUrl }) {
+// Unfortunately, some requested
+function checkIfLocal({ url, finalUrl }) {
+  return new URL(url).origin  === new URL(finalUrl).origin
+}
+
+exports.getJsBundlesInfo = function ({ requests, finalUrl }) {
+  // This site apparently uses redirects headers, and so scripts are loaded from https://v3.hackclub.com/, which breaks the analysis
+  if (finalUrl === "https://hackclub.com/") {
+    return {}
+  }
   const allJsFiles = requests
     .filter(
       (req) =>
@@ -50,11 +59,11 @@ exports.getJsBundlesInfo = function ({ requests, requestedUrl }) {
       transferSize,
       resourceSize,
       // If not from the requested URL, we'll treat it as third party
-      isThirdParty: !url.includes(requestedUrl),
+      isThirdParty: !checkIfLocal({ url, finalUrl }),
     }));
 
   const localFiles = allJsFiles.filter((req) => !req.isThirdParty);
-  const thirdPartyFiles = allJsFiles.filter((req) => !req.isThirdParty);
+  const thirdPartyFiles = allJsFiles.filter((req) => req.isThirdParty);
   const thirdPartyOrigins = thirdPartyFiles.reduce((origins, { url }) => {
     const origin = new URL(url).origin;
     if (origins.indexOf(origin) >= 0) {

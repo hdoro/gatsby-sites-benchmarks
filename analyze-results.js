@@ -13,6 +13,8 @@ const listFilenames = sitesList.map((site) => {
 const { getGoogleFontsInfo } = require("./analysis/googleFonts");
 const { getDataDuplicationInfo } = require("./analysis/dataDuplication");
 const { getJsBundlesInfo } = require("./analysis/jsBundles");
+const { getJsImpactInfo } = require("./analysis/jsImpact");
+const { getImagesInfo } = require("./analysis/images");
 const analyzeAggregate = require("./analysis/aggregate");
 
 function analyzeResult(result) {
@@ -25,18 +27,24 @@ function analyzeResult(result) {
     return;
   }
   const requests = result.audits["network-requests"].details.items;
-  const { requestedUrl } = result;
+  const { finalUrl } = result;
 
   const googleFonts = getGoogleFontsInfo(requests);
 
-  const dataDuplication = getDataDuplicationInfo({ requests, requestedUrl });
+  const dataDuplication = getDataDuplicationInfo({ requests, finalUrl });
 
-  const jsBundles = getJsBundlesInfo({ requests, requestedUrl });
+  const jsBundles = getJsBundlesInfo({ requests, finalUrl });
+
+  const jsImpact = getJsImpactInfo({ audits: result.audits });
+
+  const images = getImagesInfo({ audits: result.audits });
 
   return {
     googleFonts,
     dataDuplication,
     jsBundles,
+    jsImpact,
+    images
   };
 }
 
@@ -59,7 +67,7 @@ function analyzeWebsite(fileName) {
     );
     // We don't want to nest v5 info in "site.v5", as that includes most of t
     return {
-      requestedUrl: v5Result.requestedUrl,
+      finalUrl: v5Result.finalUrl,
       analysis,
       scoresV5,
       scoresV6,
@@ -83,18 +91,24 @@ function analyzeAllSites() {
 }
 
 function analyzeResults() {
-  const individualSites = analyzeAllSites().filter(
+  const individualStats = analyzeAllSites().filter(
     (s) => s && s.analysis && s.scoresV5 && s.scoresV6
   );
-  const aggregate = analyzeAggregate(individualSites);
+  const aggregateStats = analyzeAggregate(individualStats);
 
   fs.writeFileSync(
-    "./results/analysis.json",
+    "./results/individualStats.json",
     JSON.stringify(
-      {
-        aggregate,
-        individualSites,
-      },
+      individualStats,
+      null,
+      2
+    ),
+    { encoding: "utf-8" }
+  );
+  fs.writeFileSync(
+    "./results/aggregateStats.json",
+    JSON.stringify(
+      aggregateStats,
       null,
       2
     ),

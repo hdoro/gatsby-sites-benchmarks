@@ -25,14 +25,19 @@ exports.aggregateDataDuplicationInfo = function(sites) {
   };
 }
 
-exports.getDataDuplicationInfo = function({ requests, requestedUrl }) {
+exports.getDataDuplicationInfo = function({ requests, finalUrl }) {
+  // `https://dispel.io/` has a weird test result that doesn't load `page-data.json` for the homepage, and hence shows as if `indexPageData.transferSize = 0`. Removed from the analysis
+  if (finalUrl === "https://dispel.io/") {
+    return {}
+  }
+  
   // In Gatsby v2, as far as I know, this is where the homepage's data is stored
-  const indexPageDataUrl = requestedUrl + "page-data/index/page-data.json";
+  const indexPageDataUrl = finalUrl + "page-data/index/page-data.json";
   // Find the index page data and get its transferSize
   const indexData = requests.find(({ url }) => url === indexPageDataUrl)
     ;
   // Find the homepage's HTML and get its transfer and resourceSize
-  const indexHtmlReq = requests.find(({ url }) => url === requestedUrl);
+  const indexHtmlReq = requests.find(({ url }) => url === finalUrl);
   return {
     indexPageData: {
       transferSize: indexData && indexData.transferSize,

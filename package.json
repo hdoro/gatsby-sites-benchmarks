@@ -1,16 +1,22 @@
 {
-  "name": "gatsby-tests",
+  "name": "gatsby-sites-benchmark",
   "version": "1.0.0",
-  "description": "Hey there, [Henrique](https://twitter.com/hcavaliericodes) here 👋",
+  "description": "922 websites profiled for performance with Google Lighthouse to put \"Fast in every way that matters\" to the test 😊",
   "main": "analyze-results.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [
+    "gatsby",
+    "performance",
+    "benchmark",
+    "lighthouse"
+  ],
+  "author": {
+    "name": "Henrique Cavalieri",
+    "email": "contact@kaordica.design",
+    "url": "https://kaordica.design"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
-    "jstat": "1.9.3",
+    "mathjs": "^6.6.4",
     "slugify": "1.4.0"
   }
 }

@@ -1,14 +1,21 @@
 {
-  "name": "lighthouse-6",
+  "private": true,
+  "name": "gatsby-sites-benchmark-tests-v6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [
+    "gatsby",
+    "performance",
+    "benchmark",
+    "lighthouse"
+  ],
+  "author": {
+    "name": "Henrique Cavalieri",
+    "email": "contact@kaordica.design",
+    "url": "https://kaordica.design"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "chrome-launcher": "0.13.1",
     "lighthouse": "6.0.0-beta.0",
