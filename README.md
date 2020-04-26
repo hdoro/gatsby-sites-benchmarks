@@ -27,15 +27,18 @@ I've ran these tests and analyses made for my talk ["Speed up you Gatsby app in 
   - And on average, sites ship **`1.58mb` of Javascript** to users (`430kb` of download size), which means there are some _really_ js-heavy websites out there!
 - The smallest JS bundle from the sample was **`224kb`**, still a lot for low-end phones
 - And this translates in a **poorer user experience**:
-  - After seeing the [first contentful paint](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint), the median site still forces users to wait **`5095ms`** until they can interact with the page (_time to interactive_)
-    - Read more: [Time to Interactive documentation](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive)
+  - After seeing the [first contentful paint](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint), the median site still forces users to wait **`490ms`** until they can interact with the page (_total blocking time_)
+    - This isn't a bad median, per se, as it falls under the `300-600` "moderate" range of Lighthouse for this metric
+    - However, the **mean is `1.15s`**, which goes way deep in the slow zone, and the standard deviation is `6.7s`, which makes this a very erratic result
+    - This means that many sites are doing great and aren't blocking users, while others are doing terribly bad and providing the worst UX possible
+    - Read more: [Total Blocking Time documentation](https://web.dev/lighthouse-total-blocking-time/)
   - We're draining devices' batteries with so much Javascript: the median site takes **`4.5s`** to finally allow the CPU to be idle for the first time. And this doesn't even mean the work if done
     - Read more: [First CPU Idle documentation](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
 - Gatsby's content duplication can be really impactful, with the median homepage `page-data.json` + `index.html` combination weighting **`114kb`**
   - This has a huge standard deviation as some will have very few data to display and others will have very minimal pre-rendered HTML (everything built on mount), so it's worth considering the **average of `212kb`**.
   - Download sizes are considerably smaller (`28.5kb` for the median and`56kb` for the average), but we must remember the processing cost of hydrating/rendering this much data / HTML nodes.
 - ☀ _Most_ Gatsby sites correctly use Gatsby images
-  - medians of `offscreen-images` and `responsive-images` score are **`1`** (at least half of the sites scored 1!)
+  - medians of `offscreen-images` and `responsive-images` scores are **`1`** (at least half of the sites scored 1!)
   - the standard deviation is `0.23` and `0.27`, respectively, not bad!
   - the conclusion here is that most of the community is well educated around images, we just have to reach the last ~10% (this percentage is a guess) of sites that might have a problem with it 🙌
 
